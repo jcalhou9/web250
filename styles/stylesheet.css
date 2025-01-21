@@ -11,10 +11,6 @@
     --body: linear-gradient(#00ffe859, #3bff007d 15%, #3bff007d 92%, #00ffe859);
 }
 
-html {
-    font-size: 22px;
-}
-
 body{
     display: flex;
 	flex-direction: column;
