@@ -1,0 +1,136 @@
+/* Jeremy Calhoun */
+/* WEB250-N850 Spring 25  */
+:root {
+    --sidebar: #000000d6;
+    --sidebar_heading: #00edff;
+    --sidebar_links: #7eff79;
+    --header_footer: #0e9eff;
+    --header_footer_text: azure;
+    --main_headings: #0068ff;
+    --main_text: #063f00;
+    --body: linear-gradient(#00ffe859, #3bff007d 15%, #3bff007d 92%, #00ffe859);
+}
+
+
+body{
+    display: flex;
+	flex-direction: column;
+    background: var(--body); 
+    min-height: 100vh;
+    margin: 0;
+}
+
+header, footer{
+    margin-left: 25ch;
+    background-color: var(--header_footer);
+    max-width: 100%;
+    box-shadow:  0 0 10px 0;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    padding: 1ch;
+    color: var(--header_footer_text);
+}
+
+h2 {
+    text-align: center;
+    color: var(--main_headings)
+}
+
+figure {
+    margin: 1ch 0;
+    text-align: center;
+    color: var(--main_text);
+}
+
+p, main a, main ul, main ol{
+    color: var(--main_text);
+}
+
+main ol{
+    margin: 1ch auto 1ch 2ch;
+}
+
+main ul {
+    padding: 0;
+	max-width: 100ch;
+}
+
+main dl {
+color: var(--light-text-color);
+	margin: 1ch auto 1ch 4ch;
+}
+
+main li {
+	list-style-type: circle ;
+	margin-top:.5ch;
+}
+
+main {
+    padding-left: 30ch;
+    padding-right: 2ch;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin: 1ch 0 3ch;
+    max-width: 100ch;
+    margin:0 auto;
+}
+
+footer p {
+    margin: 0;
+    padding: 1ch;
+    color: var(--header_footer_text);
+}
+
+footer a {
+    color: var(--header_footer_text);
+}
+
+aside {
+    position: fixed;
+    top:0;
+    margin: 0;
+    width: 25ch;
+    height: 100vh;
+    float: left;
+    background-color: var(--sidebar);
+    justify-content: center;
+    display: flex;
+}
+
+h3{
+    color: var(--sidebar_heading);
+}
+
+.page-links {
+    list-style: none;
+    margin-top: 0;
+    padding: 0;
+}
+
+.page-links li {
+    padding: 1ch
+}
+
+.page-links li a {
+    text-decoration: none;
+    color:var(--sidebar_links);
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin-top: auto;
+}
+
+.social-links li {
+    padding: 1ch
+}
+
+.social-links li a {
+    text-decoration: none;
+    color:var(--sidebar_links);
+}
