@@ -151,11 +151,7 @@ aside {
 }
 
 @media screen and (max-height: 900px) {
-    aside{
-        max-height: 100vh;
-    }
     .page-links, .social-links, .sidebar-headings {
-        list-style: none;
         margin: 0 auto;
         padding: 0;
     }
