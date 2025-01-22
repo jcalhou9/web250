@@ -104,7 +104,7 @@ aside {
     display: flex;
 }
 
-h3{
+.sidebar-headings{
     color: var(--sidebar_heading);
 }
 
@@ -147,5 +147,20 @@ h3{
     }
     main {
         padding-left: clamp(14ch, 35%, 30ch);
+    }
+}
+
+@media screen and (max-height: 900px) {
+    aside{
+        max-height: 100vh;
+    }
+    .page-links, .social-links, .sidebar-headings {
+        list-style: none;
+        margin: 0 auto;
+        padding: 0;
+    }
+    
+    .page-links li, .social-links li {
+        padding: .5ch;
     }
 }
