@@ -49,26 +49,16 @@ img{
     max-width: 100%;
 }
 
-p, main a, main ul, main ol{
+p, main a, main dl{
     color: var(--main_text);
 }
 
-main ol{
-    margin: 1ch auto 1ch 2ch;
-}
-
-main ul {
+main dl {
     padding: 0;
 	max-width: 100ch;
 }
 
-main dl {
-    color: var(--light-text-color);
-	margin: 1ch auto 1ch 4ch;
-}
-
-main li {
-	list-style-type: circle ;
+main dd, main dt {
 	margin-top:.5ch;
 }
 
