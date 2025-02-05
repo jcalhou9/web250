@@ -58,8 +58,13 @@ main dl {
 	max-width: 100ch;
 }
 
-main dd, main dt {
-	margin-top:.5ch;
+main dt {
+	margin-top:1ch;
+    margin-bottom:1ch;
+}
+
+main dd {
+    margin-top: .25ch;
 }
 
 main {
