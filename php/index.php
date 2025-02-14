@@ -15,7 +15,7 @@ if(!in_array($content, $pages)) {
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Jeremy Calhoun's Jubilant Cheetah ~ WEB250 ~ <?php echo ucfirst($content) ?> </title>
+		<title>Jeremy Calhoun's Jubilant Cheetah ~ WEB250 ~ <?= ucfirst($content) ?> </title>
 		<link rel="stylesheet" type="text/css" href="./styles/default.css">
 		<link rel="icon" type="image/x-icon" href="./images/favicon.png">
 		<script src="https://lint.page/kit/880bd5.js" crossorigin="anonymous"></script>
@@ -23,7 +23,7 @@ if(!in_array($content, $pages)) {
 	<body>
 		<aside>
             <nav>
-                <a href="index.html"><img src="./images/clover2.png" alt="Three leaf clover"></a>
+                <a href="index.php?content=home"><img src="./images/clover2.png" alt="Three leaf clover"></a>
                 <ul class="page-links">
                     <h3 class="sidebar-headings">Pages</h3>
                     <li><a href="index.php?content=home">Home</a></li>
