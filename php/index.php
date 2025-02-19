@@ -24,14 +24,14 @@ if(!in_array($content, $pages)) {
 		<aside>
             <nav>
                 <a href="index.php?content=home"><img src="./images/clover2.png" alt="Three leaf clover"></a>
+                <h3 class="sidebar-headings">Pages</h3>
                 <ul class="page-links">
-                    <h3 class="sidebar-headings">Pages</h3>
                     <li><a href="index.php?content=home">Home</a></li>
                     <li><a href="index.php?content=contract">Contract</a></li>
                     <li><a href="index.php?content=introduction">Introduction</a></li>
                 </ul>
+                <h3 class="sidebar-headings">External links</h3>
                 <ul class="social-links">
-                    <h3 class="sidebar-headings">External links</h3>
                     <li><a href="https://github.com/jcalhou9">GitHub</a></li>
                     <li><a href="https://jcalhou9.github.io/">GitHub.io</a></li>
                     <li><a href="https://jcalhou9.github.io/web115/">WEB115</a></li>
@@ -48,7 +48,7 @@ if(!in_array($content, $pages)) {
 			<h1>Jeremy Calhoun's Jubilant Cheetah ~ WEB250</h1>
 		</header>
 		<main>
-			<?php include "components/" . $content . '.html'; ?>
+			<?php include "components/" . $content . '.php'; ?>
 		</main>
 		<footer>
 			<p><i>Created by Jeremy Calhoun, 

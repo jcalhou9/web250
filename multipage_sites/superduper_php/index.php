@@ -1,8 +1,17 @@
+<?php
+	if (isset($_GET["p"])) {
+		$sPage = $_GET["p"];
+	} else {
+		$sPage = "home";
+	}
+	
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-	<title>super duper paratrooper page</title>
+	<title>super duper paratrooper page - <?= ucfirst($sPage) ?></title>
 	<link rel = "stylesheet" type = "text/css" href = "styles.css" />
 </head>
 <body>
@@ -28,14 +37,7 @@
 <!-- dynamic content goes here -->
 
 <?php
-	if (isset($_GET["p"])) {
-		$sPage = $_GET["p"] . ".php";
-	} else {{
-		$sPage = "home.php";}
-	}
-	//echo ("You picked the page: " . $sPage); 
-
-	include($sPage)
+	include($sPage) . ".php"
 ?>
 
 
