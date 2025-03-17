@@ -1,4 +1,4 @@
 <?php
- echo "<br><br><a href='samsusedcars.html'>Sam's Used Cars Home</a>";
-  echo "<br>Copyright 2017, Alan Forbes.  All rights reserved.";
+  echo "<br><br><a href='/web250/joyphp/src/jeremys_used_cars.php'>Jeremy's Used Cars Home</a>";
+
 ?>

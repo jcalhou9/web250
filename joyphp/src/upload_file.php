@@ -1,5 +1,10 @@
 <?php
- include 'db.php';
+
+//connect to mysql
+include('db_scripts/db_connection.php');
+//select a database to work with
+include('db_scripts/db_config.php');
+
  $vin = trim($_POST['VIN']);
 if ($_FILES["file"]["error"] > 0)
   {
@@ -46,7 +51,7 @@ if ($result = $mysqli->query($query)) {
     }
     else
     {
-        echo "Error entering $VIN into database: " . mysql_error()."<br>";
+        echo "Error entering $VIN into database: " . $mysqli->error."<br>";
     }
     $mysqli->close();
     echo "<img src='$imagename' width='150'><br>";

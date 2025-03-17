@@ -5,20 +5,24 @@
 <title>Car Entry Form</title>
 </head>
 <body>
-<h1>Sam's Used Cars
+<h1>Jeremy's Used Cars
 </h1>
 <?php
-include 'db.php';
+
+//connect to mysql
+include('db_scripts/db_connection.php');
+//select a database to work with
+include('db_scripts/db_config.php');
+
 $vin = $_GET['VIN'];
 $query = "SELECT * FROM inventory WHERE VIN='$vin'";
 /* Try to query the database */
 if ($result = $mysqli->query($query)) {
- // echo "<p>Got the info</p>"; // Don't do anything if successful.
-}
-else
-{
+//  echo "<p>Got the info</p>"; // Don't do anything if successful.
+} else {
  echo "Sorry, a vehicle with VIN of $vin cannot be found " .  $mysqli->error."<br>";
 }
+
 // Loop through all the rows returned by the query, creating a table row for each
 while ($result_ar = mysqli_fetch_assoc($result)) {
  $VIN = $result_ar['VIN'];
@@ -41,8 +45,8 @@ echo "$VIN </p>";
 $mysqli->close();
 ?>
 
-<form action="EditCar.php"
-method=”post”>
+<form action="db_scripts/edit_car.php"
+method="post">
 <input name="VIN" type="hidden" value= "<?php echo "$VIN" ?>" /><br />
 <br />
 Make: <input name="Make" type="text" value= "<?php echo "$make" ?>" /><br />

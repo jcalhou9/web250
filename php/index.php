@@ -24,14 +24,22 @@ if(!in_array($content, $pages)) {
 		<aside>
             <nav>
                 <a href="index.php?content=home"><img src="./images/clover2.png" alt="Three leaf clover"></a>
-                <h3 class="sidebar-headings">Pages</h3>
+                <h3 class="sidebar-headings">PHP pages</h3>
                 <ul class="page-links">
                     <li><a href="index.php?content=home">Home</a></li>
                     <li><a href="index.php?content=contract">Contract</a></li>
                     <li><a href="index.php?content=introduction">Introduction</a></li>
+                    <li><a href="../">Static Website</a></li>
+                </ul>
+                <h3 class="sidebar-headings">External pages</h3>
+                <ul class="page-links">
+                    <li><a href="../multipage_sites/superduper_static/">Superduper Static</a></li>
+                    <li><a href="../multipage_sites/superduper_php/">Superduper PHP</a></li>
+                    <!-- <li><a href="../joyphp/src/">Joy of PHP</a></li>
+                    <li><a href="../joyphp/src/jeremys_used_cars.php">Sam's Used Cars</a></li> -->
                 </ul>
                 <h3 class="sidebar-headings">External links</h3>
-                <ul class="social-links">
+                <ul class="page-links">
                     <li><a href="https://github.com/jcalhou9">GitHub</a></li>
                     <li><a href="https://jcalhou9.github.io/">GitHub.io</a></li>
                     <li><a href="https://jcalhou9.github.io/web115/">WEB115</a></li>

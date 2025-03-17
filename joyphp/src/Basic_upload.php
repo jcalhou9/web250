@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Sam's Used Cars</title>
+<title>Jeremy's Used Cars</title>
 </head>
 
 <body>

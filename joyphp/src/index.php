@@ -14,12 +14,12 @@
 </style>
 </head>
 
-<body background="bg.jpg">
+<body background="site_images/bg.jpg">
 
-<p><img alt="The Joy of PHP" height="87" src="joy_logo.jpg" width="809" /></p>
+<p><img alt="The Joy of PHP" height="87" src="site_images/joy_logo.jpg" width="809" /></p>
 <h2>Introduction</h2>
 <p>The Joy of PHP book walks you through creating a website for <strong>
-<a href="samsusedcars.html">Sam's Used Cars</a></strong>.&nbsp; 
+<a href="jeremys_used_cars.php">Jeremy's Used Cars</a></strong>.&nbsp; 
 All the sample code in the book is conveniently created here.&nbsp; To get 
 started, you'll need to make sure that you have PHP and mySQL running on your 
 machine.&nbsp; Here are the links to get started.&nbsp; </p>
@@ -50,18 +50,18 @@ machine.&nbsp; Here are the links to get started.&nbsp; </p>
 </table>
 <h2>Following along with the lessons</h2>
 <p>Is PHP Running on my machine?  What version?  What extensions? &nbsp; Check it here -->
-<a href="phpinfo.php" target="_blank">PHP Info Paget</a></p>
+<a href="php_info.php" target="_blank">PHP Info Page</a></p>
 <p>A really simple PHP page --&gt; <a href="simple.php">simple.php</a></p>
 <h2>Database Related Scripts</h2>
-<p><a href="CreateDB.php">Create the Cars Database</a> (Before you can use this, 
+<p><a href="db_scripts/db_setup.php">Reset the Cars Database</a> (Before you can use this, 
 you'll need to edit line 8 with your username and password)</p>
 
-<p><a href="ModifyDB.php">Modify the Inventory Table</a> (This script adds the
+<p><a href="db_modify.php">Modify the Inventory Table</a> (This script adds the
 <strong>Primary_Image</strong> column.&nbsp; Again, edit line 8 with your 
 username and password)</p>
-<p><a href="CreateImagesTable.php">Create the Images Table</a> (Again, edit line 
+<p><a href="create_image_table.php">Create the Images Table</a> (Again, edit line 
 8 with your username and password)</p>
-<p><img alt="Joy of PHP" height="313" src="smallcover.jpg" width="196" /></p>
+<p><img alt="Joy of PHP" height="313" src="site_images/smallcover.jpg" width="196" /></p>
 
 </body>
 

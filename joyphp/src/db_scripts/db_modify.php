@@ -3,16 +3,11 @@
  * Joy of PHP sample code
  * Demonstrates how to modify an existing database table.
  */
-include 'db.php';
 
-   if (!$mysqli) { 
-      die("Could not connect: ".$mysqli->error."<br>"); 
-  } 
-  echo 'Connected successfully to mySQL. <BR>'; 
-  
+//connect to mysql
+include('db_connection.php');
 //select a database to work with
-$mysqli->select_db("Cars");
-   Echo ("Selected the Cars database<br>");
+include('db_config.php');
 
 $query = "ALTER TABLE `inventory` ADD `Primary_Image` VARCHAR(250) NULL AFTER `SALE_DATE`";
 echo "<p>***********</p>";
