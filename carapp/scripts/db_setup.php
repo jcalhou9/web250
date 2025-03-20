@@ -4,17 +4,18 @@ session_start();
 include('db_connection.php');
 
 //create database if doesnt exist
-$query = "CREATE DATABASE IF NOT EXISTS if0_38352683_Cars";
+$query = "CREATE DATABASE IF NOT EXISTS if0_38352683_CARS";
 if ($mysqli->query("$query")) {
     echo "<p>Database Cars available</P>";
 } else {
-    echo "Had trouble with this SQL: CREATE DATABASE IF NOT EXISTS Cars";
+    echo "Had trouble with this SQL: CREATE DATABASE IF NOT EXISTS CARS";
 }
 
 //select a database to work with
 include('db_config.php');
 
-$query = " DROP TABLE IF EXISTS inventory";
+// drop the table inventory if it exists
+$query = "DROP TABLE IF EXISTS INVENTORY";
 if ($mysqli->query($query) === TRUE) {
     echo "Database table 'INVENTORY' dropped</P>";
 }else{
@@ -23,11 +24,11 @@ if ($mysqli->query($query) === TRUE) {
 
 
 /* Create table if doesnt exists and doesn't return a resultset */
-$query = " CREATE TABLE IF NOT EXISTS inventory 
-( VIN varchar(17) PRIMARY KEY, YEAR INT, Make varchar(50), Model varchar(100), 
+$query = " CREATE TABLE IF NOT EXISTS INVENTORY 
+( VIN varchar(17) PRIMARY KEY, YEAR INT, MAKE varchar(50), MODEL varchar(100), 
 TRIM varchar(50), EXT_COLOR varchar (50), INT_COLOR varchar (50), ASKING_PRICE DECIMAL (10,2), 
 SALE_PRICE DECIMAL (10,2), PURCHASE_PRICE DECIMAL (10,2), MILEAGE int, TRANSMISSION varchar (50), 
-PURCHASE_DATE DATE, SALE_DATE DATE)";
+PURCHASE_DATE DATE, SALE_DATE DATE, PRIMARY_IMAGE VARCHAR(250))";
 
 if ($mysqli->query($query) === TRUE) {
     echo "Database table 'INVENTORY' available</P>";
@@ -35,9 +36,25 @@ if ($mysqli->query($query) === TRUE) {
     echo "<p>Error: </p>" . $mysqli->error;
 }
 
+$query = " DROP TABLE IF EXISTS IMAGES";
+if ($mysqli->query($query) === TRUE) {
+    echo "Database table 'IMAGES' dropped</P>";
+}else{
+    echo "<p>Error: </p>" . $mysqli->error;
+}
+
+$query = " CREATE TABLE IF NOT EXISTS IMAGES (ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT, VIN varchar(17), IMAGEFILE varchar(250))";
+//echo "<p>***********</p>";
+//echo $query ;
+//echo "<p>***********</p>";
+if ($mysqli->query($query) === TRUE) {
+    echo "Database table 'IMAGES' created</P>";
+} else {
+    echo "<p>Error: " . mysqli_error($mysqli);
+}
 
 // Insert 31 other cars 
-$query3 = "INSERT IGNORE INTO `if0_38352683_Cars`.`inventory` (`VIN`, `YEAR`, `Make`, `Model`, `TRIM`, `EXT_COLOR`, `INT_COLOR`, `ASKING_PRICE`, `SALE_PRICE`, `PURCHASE_PRICE`, `MILEAGE`, `TRANSMISSION`, `PURCHASE_DATE`, `SALE_DATE`)
+$query3 = "INSERT IGNORE INTO `if0_38352683_CARS`.`INVENTORY` (`VIN`, `YEAR`, `MAKE`, `MODEL`, `TRIM`, `EXT_COLOR`, `INT_COLOR`, `ASKING_PRICE`, `SALE_PRICE`, `PURCHASE_PRICE`, `MILEAGE`, `TRANSMISSION`, `PURCHASE_DATE`, `SALE_DATE`)
  VALUES
 ('5FNYF4H91CB054036', 2012, 'Honda', 'Pilot', 'Touring', 'White Diamond Pearl', 'Leather', 37807, NULL, 34250, 7076, 'Automatic', '2012-11-08', NULL),
 ('LAKSDFJ234LASKRF2', 2009, 'Dodge', 'Durango', 'SLT', 'Silver', 'Black', 2700, NULL, 2000, 144000, '4WD Automatic', '2012-12-05', NULL),
@@ -72,10 +89,8 @@ $query3 = "INSERT IGNORE INTO `if0_38352683_Cars`.`inventory` (`VIN`, `YEAR`, `M
 ('YV4SZ592561219696', 2006, 'Volvo', 'XC70', 'AWD', 'Willow Green Metallic', 'Taupe Leather', 14996, NULL, 11247, 83664, '5-Speed Automatic w/ Geartronic', '2013-01-14', NULL);
 ";
 if ($mysqli->query($query3) === TRUE) {
-    echo "<p>31 cars added or already exist in inventory.</p>";
-}
-else
-{
+    echo "<p>31 cars added or already exist in INVENTORY.</p>";
+} else {
 echo $mysqli->error;
     echo "<p>Error Inserting 31 cars: </p>" . printf("Errormessage: %s\n", $mysqli->error);
     echo "<p>***********</p>";

@@ -7,12 +7,12 @@ include('../scripts/db_config.php');
 
 if(isset($_POST['delete'])) {
     $imageId = $_POST['image_id'];
-    $vin = $_POST['vin'];
+    $vin = $_POST['VIN'];
 
-$query = "SELECT ImageFile FROM IMAGES WHERE ID='$imageId'";
+$query = "SELECT IMAGEFILE FROM IMAGES WHERE ID='$imageId'";
 $result = $mysqli->query($query);
 if ($row = $result->fetch_assoc()) {
-    $imageFile = $row['ImageFile'];
+    $imageFile = $row['IMAGEFILE'];
     $imagePath = __DIR__ . "/images/uploads/" . $imageFile;
 
     if (file_exists($imagePath)) {

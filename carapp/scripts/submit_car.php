@@ -6,26 +6,26 @@ include('db_config.php');
 
 session_start();
 // Capture the values posted to this php program from the text fields
-$VIN =  trim( $_REQUEST['VIN']) ;
-$Make = trim( $_REQUEST['Make']) ;
-$Model = trim( $_REQUEST['Model']) ;
-$Price =  $_REQUEST['Asking_price'] ;
+$vin =  trim( $_REQUEST['VIN']) ;
+$make = trim( $_REQUEST['MAKE']) ;
+$model = trim( $_REQUEST['MODEL']) ;
+$price =  $_REQUEST['ASKING_PRICE'] ;
 
 
 //Build a SQL Query using the values from above
-$query = "INSERT INTO inventory
-  (VIN, Make, Model, ASKING_PRICE)
+$query = "INSERT INTO INVENTORY
+  (VIN, MAKE, MODEL, ASKING_PRICE)
    VALUES (
-   '$VIN', 
-   '$Make', 
-   '$Model',
-    $Price
+   '$vin', 
+   '$make', 
+   '$model',
+    $price
     )";
 
 /* Try to insert the new car into the database */
 $_SESSION['message'] = $mysqli->query($query)
-    ? "You have successfully entered $Make $Model into the database."
-    : "Error entering $VIN into database: " . $mysqli->error;
+    ? "You have successfully entered $make $model into the database."
+    : "Error entering $vin into database: " . $mysqli->error;
 
 $mysqli->close();
 header("Location: ../");

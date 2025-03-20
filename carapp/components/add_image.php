@@ -26,8 +26,8 @@ else
 // Loop through all the rows returned by the query, creating a table row for each
 while ($result_ar = mysqli_fetch_assoc($result)) {
     $year = $result_ar['YEAR'];
-	$make = $result_ar['Make'];
-    $model = $result_ar['Model'];
+	$make = $result_ar['MAKE'];
+    $model = $result_ar['MODEL'];
     $trim = $result_ar['TRIM'];
     $color = $result_ar['EXT_COLOR'];
     $interior = $result_ar['INT_COLOR'];
@@ -50,17 +50,17 @@ echo "<p>Asking Price: $".number_format($price,0) ."</p>";
     </form>
 <br/><br/>
 <?php
-$query = "SELECT * FROM images WHERE VIN='$vin'";
+$query = "SELECT * FROM IMAGES WHERE VIN='$vin'";
 /* Try to query the database */
 if ($result = $mysqli->query($query)) {
     while ($result_ar = mysqli_fetch_assoc($result)) {
-        $image = $result_ar['ImageFile'];
+        $image = $result_ar['IMAGEFILE'];
         $imageId = $result_ar['ID'];
         echo "<div style='display: inline-block; margin: 10px; text-align: center;'>";
         echo "<img src='../images/uploads/$image' width='250'><br>";
         echo "<form action='delete_image.php' method='post'>";
         echo "<input type='hidden' name='image_id' value='$imageId'>";
-        echo "<input type='hidden' name='vin' value='$vin'>";
+        echo "<input type='hidden' name='VIN' value='$vin'>";
         echo "<input type='submit' name='delete' value='Delete'>";
         echo "</form>";
         echo "</div>";

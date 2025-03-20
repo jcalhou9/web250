@@ -15,7 +15,7 @@ include('../scripts/db_connection.php');
 include('../scripts/db_config.php');
 
 $vin = $_GET['VIN'];
-$query = "SELECT * FROM inventory WHERE VIN='$vin'";
+$query = "SELECT * FROM INVENTORY WHERE VIN='$vin'";
 /* Try to query the database */
 if ($result = $mysqli->query($query)) {
 //  echo "<p>Got the info</p>"; // Don't do anything if successful.
@@ -27,8 +27,8 @@ if ($result = $mysqli->query($query)) {
 while ($result_ar = mysqli_fetch_assoc($result)) {
  $VIN = $result_ar['VIN'];
  $year = $result_ar['YEAR'];
- $make = $result_ar['Make'];
- $model = $result_ar['Model'];
+ $make = $result_ar['MAKE'];
+ $model = $result_ar['MODEL'];
  $trim = $result_ar['TRIM'];
  $color = $result_ar['EXT_COLOR'];
  $interior = $result_ar['INT_COLOR'];
@@ -49,11 +49,11 @@ $mysqli->close();
 method="post">
 <input name="VIN" type="hidden" value= "<?php echo "$VIN" ?>" /><br />
 <br />
-Make: <input name="Make" type="text" value= "<?php echo "$make" ?>" /><br />
+Make: <input name="MAKE" type="text" value= "<?php echo "$make" ?>" /><br />
 <br />
-Model: <input name="Model" type="text" value= "<?php echo "$model" ?>" /><br />
+Model: <input name="MODEL" type="text" value= "<?php echo "$model" ?>" /><br />
 <br />
-Price: <input name="Asking_Price" type="text" value= "<?php echo "$price" ?>" /><br />
+Price: <input name="ASKING_PRICE" type="text" value= "<?php echo "$price" ?>" /><br />
 <br />
 <input name="Submit1" type="submit" value="submit" /><br />
 &nbsp;</form>

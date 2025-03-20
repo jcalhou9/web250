@@ -37,7 +37,7 @@ if(!in_array($content, $pages)) {
                     <li><a href="../multipage_sites/superduper_php/">Superduper PHP</a></li>
                     <li><a href="../joyofphp/src/">Joy of PHP</a></li>
                     <li><a href="../joyofphp/src/samsusedcars.html">Sam's Used Cars</a></li>
-                    <!-- <li><a href="../carapp">Jeremy's Used Cars</a></li> -->
+                    <li><a href="../carapp">Jeremy's Used Cars</a></li>
                 </ul>
                 <h3 class="sidebar-headings">External links</h3>
                 <ul class="page-links">

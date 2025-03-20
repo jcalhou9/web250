@@ -6,6 +6,7 @@
 <body background="../images/bg.jpg">
 
 <h1>Jeremy's Used Cars</h1>
+<p><a href="../">Return Home</a></p>
 <?php 
 
 //connect to mysql
@@ -14,7 +15,7 @@ include('../scripts/db_connection.php');
 include('../scripts/db_config.php');
 
 $vin = $_GET['VIN'];
-$query = "SELECT * FROM inventory WHERE VIN='$vin'";
+$query = "SELECT * FROM INVENTORY WHERE VIN='$vin'";
 /* Try to query the database */
 if ($result = $mysqli->query($query)) {
    // Don't do anything if successful.
@@ -26,8 +27,8 @@ else
 // Loop through all the rows returned by the query, creating a table row for each
 while ($result_ar = mysqli_fetch_assoc($result)) {
     $year = $result_ar['YEAR'];
-	$make = $result_ar['Make'];
-    $model = $result_ar['Model'];
+	$make = $result_ar['MAKE'];
+    $model = $result_ar['MODEL'];
     $trim = $result_ar['TRIM'];
     $color = $result_ar['EXT_COLOR'];
     $interior = $result_ar['INT_COLOR'];
@@ -35,18 +36,18 @@ while ($result_ar = mysqli_fetch_assoc($result)) {
     $transmission = $result_ar['TRANSMISSION']; 
     $price = $result_ar['ASKING_PRICE'];
 }
-echo "$year $make $model </p>";
+echo "<h3>$year $make $model </h3>";
 echo "<p>Asking Price: $price </p>";
 echo "<p>Exterior Color: $color </p>";
 echo "<p>Interior Color: $interior </p>";
 
-$query = "SELECT * FROM images WHERE VIN='$vin'";
+$query = "SELECT * FROM IMAGES WHERE VIN='$vin'";
 /* Try to query the database */
 if ($result = $mysqli->query($query)) {
     $images = $result->fetch_all(MYSQLI_ASSOC);
 
     foreach ($images as $imageData) {
-        $image = htmlspecialchars($imageData['ImageFile']);
+        $image = htmlspecialchars($imageData['IMAGEFILE']);
         $imageId = htmlspecialchars($imageData['ID']);
         ?>
         <div style="display: inline-block; margin: 10px; text-align: center;">

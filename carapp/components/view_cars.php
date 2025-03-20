@@ -15,7 +15,7 @@ include('../scripts/db_connection.php');
 //select a database to work with
 include('../scripts/db_config.php');
 
-$query = "SELECT * FROM inventory";
+$query = "SELECT * FROM INVENTORY";
 /* Try to query the database */
 if ($result = $mysqli->query($query)) {
    // Don't do anything if successful.
@@ -39,8 +39,8 @@ $class ="odd";  // Keep track of whether a row was even or odd, so we can style 
 // Loop through all the rows returned by the query, creating a table row for each
 while ($result_ar = mysqli_fetch_assoc($result)) {
     echo "<tr class=\"$class\">";
-    echo "<td><a href='../scripts/viewcar.php?VIN=".$result_ar['VIN']."'>" . $result_ar['Make'] . "</a></td>";
-    echo "<td>" . $result_ar['Model'] . "</td>";
+    echo "<td><a href='../scripts/viewcar.php?VIN=".$result_ar['VIN']."'>" . $result_ar['MAKE'] . "</a></td>";
+    echo "<td>" . $result_ar['MODEL'] . "</td>";
     echo "<td>" . $result_ar['ASKING_PRICE'] . "</td>";
     echo "<td><a href='form_edit.php?VIN=".$result_ar['VIN']."'>Edit</a>  <a href='delete_car.php?VIN=".$result_ar['VIN']."'>Delete</a></td>";
     echo "</tr>\n";

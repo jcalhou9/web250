@@ -15,18 +15,18 @@ if ($_FILES["file"]["error"] > 0) {
   echo "Size: " . ($_FILES["file"]["size"] / 1024) . " kB<br>". "\n";
   echo "VIN: ".$vin."<br>";
   echo "Stored temporarily as: " . $_FILES["file"]["tmp_name"]."<br><BR>". "\n";
-  $currentfolder =  getcwd();
-  echo "This script is running in: " .$currentfolder."<br>". "\n";
-  $target_path = __DIR__ . "/../images/uploads/";
-  echo "The uploaded file will be stored in the folder: ".$target_path."<br>". "\n";
+  $currentFolder =  getcwd();
+  echo "This script is running in: " .$currentFolder."<br>". "\n";
+  $targetPath = __DIR__ . "/../images/uploads/";
+  echo "The uploaded file will be stored in the folder: ".$targetPath."<br>". "\n";
 
-  $target_path = $target_path . basename( $_FILES['file']['name']); 
-  $imagename = "../images/uploads/". basename( $_FILES['file']['name']); 
-  echo "The full file name of the uploaded file is '". $target_path."'<br>". "\n";
+  $targetPath = $targetPath . basename( $_FILES['file']['name']); 
+  $imageName = "../images/uploads/". basename( $_FILES['file']['name']); 
+  echo "The full file name of the uploaded file is '". $targetPath."'<br>". "\n";
 
-  echo "The relative name of the file for use in the IMG tag is " . $imagename ."<br><br>". "\n";;
+  echo "The relative name of the file for use in the IMG tag is " . $imageName ."<br><br>". "\n";;
 
-if(move_uploaded_file($_FILES['file']['tmp_name'], $target_path)) {
+if(move_uploaded_file($_FILES['file']['tmp_name'], $targetPath)) {
     echo "The file ".  basename( $_FILES['file']['name']). " has been uploaded<br>". "\n";
    
     // Create a database entry for this image
@@ -36,21 +36,21 @@ if(move_uploaded_file($_FILES['file']['tmp_name'], $target_path)) {
     }
 
   echo 'Connected successfully to mySQL. <BR>'; 
-  $file_name =  $_FILES["file"]["name"];
-  $query = "INSERT INTO images (VIN, ImageFile) VALUES ('$vin', '$file_name')";
+  $fileName =  $_FILES["file"]["name"];
+  $query = "INSERT INTO IMAGES (VIN, IMAGEFILE) VALUES ('$vin', '$fileName')";
   echo $query."<br>\n";
   echo  "<a href='add_image.php?VIN=";
   echo $vin;
   echo "'>Add another image for this car </a></p>\n";
 /* Try to insert the new car into the database */
 if ($result = $mysqli->query($query)) {
-       echo "<p>You have successfully entered $target_path into the database.</P>\n";
+       echo "<p>You have successfully entered $targetPath into the database.</P>\n";
        
     } else {
-      echo "Error entering $VIN into database: " . $mysqli->error."<br>";
+      echo "Error entering $vin into database: " . $mysqli->error."<br>";
     }
     $mysqli->close();
-    echo "<img src='$imagename' width='150'><br>";
+    echo "<img src='$imageName' width='150'><br>";
 
     } else{
     echo "There was an error uploading the file, please try again!";

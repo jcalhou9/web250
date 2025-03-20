@@ -6,25 +6,25 @@ include('db_config.php');
 
 session_start();
 // Capture the values posted to this php program from the text fields in the form
-$VIN = $_REQUEST['VIN'] ;
-$Make = $_REQUEST['Make'] ;
-$Model = $_REQUEST['Model'] ;
-$Price = $_REQUEST['Asking_Price'] ;
+$vin = $_REQUEST['VIN'] ;
+$make = $_REQUEST['MAKE'] ;
+$model = $_REQUEST['MODEL'] ;
+$price = $_REQUEST['ASKING_PRICE'] ;
 
 //Build a SQL Query using the values from above
-$query = "UPDATE inventory SET 
-Make='$Make', 
-Model='$Model', 
-ASKING_PRICE='$Price'
-WHERE VIN='$VIN'"; 
+$query = "UPDATE INVENTORY SET 
+MAKE='$make', 
+MODEL='$model', 
+ASKING_PRICE='$price'
+WHERE VIN='$vin'"; 
 
 // Print the query to the browser so you can see it
 // echo ($query. "<br>");
 
 /* Try to insert the new car into the database */
 $_SESSION['message'] = $mysqli->query($query)
-    ? "You have successfully updated $Make $Model in the database."
-    : "Error updating $VIN in database: " . $mysqli->error;
+    ? "You have successfully updated $make $model in the database."
+    : "Error updating $vin in database: " . $mysqli->error;
 
 $mysqli->close();
 header("Location: ../");

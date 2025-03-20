@@ -1,0 +1,18 @@
+html{
+    background: rgb(194, 194, 194);
+}
+
+ header img{
+    float: left;
+ }
+
+body{
+    font-family: Tahoma, Arial, sans-serif;
+    max-width: 900px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+h1, h2, header, footer{
+    text-align: center;
+}
