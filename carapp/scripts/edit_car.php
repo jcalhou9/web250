@@ -12,7 +12,7 @@ $model = $_REQUEST['MODEL'] ;
 $price = $_REQUEST['ASKING_PRICE'] ;
 
 //Build a SQL Query using the values from above
-$query = "UPDATE INVENTORY SET 
+$query = "UPDATE inventory SET 
 MAKE='$make', 
 MODEL='$model', 
 ASKING_PRICE='$price'

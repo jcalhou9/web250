@@ -17,6 +17,7 @@ if(!in_array($content, $pages)) {
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Jeremy Calhoun's Jubilant Cheetah ~ WEB250 ~ <?= ucfirst($content) ?> </title>
 		<link rel="stylesheet" type="text/css" href="./styles/default.css">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
 		<link rel="icon" type="image/x-icon" href="./images/favicon.png">
 		<script src="https://lint.page/kit/880bd5.js" crossorigin="anonymous"></script>
 	</head>
@@ -54,7 +55,7 @@ if(!in_array($content, $pages)) {
             </nav>
 		</aside>
 		<header>
-			<h1>Jeremy Calhoun's Jubilant Cheetah ~ WEB250</h1>
+			<h1>Jeremy Calhoun's Jubilant Cheetah ~ WEB250 ~ PHP</h1>
 		</header>
 		<main>
 			<?php include "components/" . $content . '.php'; ?>

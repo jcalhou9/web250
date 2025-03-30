@@ -15,7 +15,7 @@ include('../scripts/db_connection.php');
 include('../scripts/db_config.php');
 
 $vin = $_GET['VIN'];
-$query = "SELECT * FROM INVENTORY WHERE VIN='$vin'";
+$query = "SELECT * FROM inventory WHERE VIN='$vin'";
 /* Try to query the database */
 if ($result = $mysqli->query($query)) {
 //  echo "<p>Got the info</p>"; // Don't do anything if successful.

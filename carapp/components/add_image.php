@@ -14,7 +14,7 @@ include('../scripts/db_connection.php');
 include('../scripts/db_config.php');
 
 $vin = $_GET['VIN'];
-$query = "SELECT * FROM INVENTORY WHERE VIN='$vin'";
+$query = "SELECT * FROM inventory WHERE VIN='$vin'";
 /* Try to query the database */
 if ($result = $mysqli->query($query)) {
    // Don't do anything if successful.
@@ -50,7 +50,7 @@ echo "<p>Asking Price: $".number_format($price,0) ."</p>";
     </form>
 <br/><br/>
 <?php
-$query = "SELECT * FROM IMAGES WHERE VIN='$vin'";
+$query = "SELECT * FROM images WHERE VIN='$vin'";
 /* Try to query the database */
 if ($result = $mysqli->query($query)) {
     while ($result_ar = mysqli_fetch_assoc($result)) {
@@ -58,7 +58,7 @@ if ($result = $mysqli->query($query)) {
         $imageId = $result_ar['ID'];
         echo "<div style='display: inline-block; margin: 10px; text-align: center;'>";
         echo "<img src='../images/uploads/$image' width='250'><br>";
-        echo "<form action='delete_image.php' method='post'>";
+        echo "<form action='../scripts/delete_image.php' method='post'>";
         echo "<input type='hidden' name='image_id' value='$imageId'>";
         echo "<input type='hidden' name='VIN' value='$vin'>";
         echo "<input type='submit' name='delete' value='Delete'>";

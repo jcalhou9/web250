@@ -1,15 +1,15 @@
 <?php
 
 //connect to mysql
-include('../scripts/db_connection.php');
+include('db_connection.php');
 //select a database to work with
-include('../scripts/db_config.php');
+include('db_config.php');
 
 if(isset($_POST['delete'])) {
     $imageId = $_POST['image_id'];
     $vin = $_POST['VIN'];
 
-$query = "SELECT IMAGEFILE FROM IMAGES WHERE ID='$imageId'";
+$query = "SELECT IMAGEFILE FROM images WHERE ID='$imageId'";
 $result = $mysqli->query($query);
 if ($row = $result->fetch_assoc()) {
     $imageFile = $row['IMAGEFILE'];
@@ -19,7 +19,7 @@ if ($row = $result->fetch_assoc()) {
         unlink($imagePath);
     }
 
-    $deleteQuery = "DELETE FROM IMAGES WHERE ID='$imageId'";
+    $deleteQuery = "DELETE FROM images WHERE ID='$imageId'";
     if ($mysqli->query($deleteQuery)) {
         echo "Image deleted successfully.<br>";
     } else {
@@ -27,7 +27,7 @@ if ($row = $result->fetch_assoc()) {
     }
 }
 
-header("Location: add_image.php?VIN=$vin");
+header("Location: ../components/add_image.php?VIN=$vin");
 exit();
 
 }

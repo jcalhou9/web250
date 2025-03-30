@@ -33,13 +33,13 @@
 				unset($_SESSION['message']);
 			}	
 
-			$query = "SELECT * FROM INVENTORY";
+			$query = "SELECT * FROM inventory";
 			/* Try to query the database */
 			try{
 				($result = $mysqli->query($query)); 
 				
 				// Create the table headers
-				echo "<table id='Grid'; table-layout: auto; border-collapse: collapse;'>\n";
+				echo "<table id='Grid'>\n";
 				echo "<tr>";
 				echo "<th>Make</th>";
 				echo "<th>Model</th>";
@@ -54,7 +54,7 @@
 					echo "<tr class=\"$class\">";
 					echo "<td><a href='scripts/viewcar.php?VIN=".$result_ar['VIN']."'>" . $result_ar['MAKE'] . "</a></td>";
 					echo "<td>" . $result_ar['MODEL'] . "</td>";
-					echo "<td>" . $result_ar['ASKING_PRICE'] . "</td>";
+					echo "<td>" . '$'.number_format($result_ar['ASKING_PRICE'],0) . "</td>";
 					echo "<td><a href='components/form_edit.php?VIN=".$result_ar['VIN']."'>Edit</a> | 
 							<a href='scripts/delete_car.php?VIN=".$result_ar['VIN']."'>Delete</a> | 
 							<a href='components/add_image.php?VIN=".$result_ar['VIN']."'>Edit Images</a> </td>";

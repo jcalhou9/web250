@@ -4,18 +4,18 @@ session_start();
 include('db_connection.php');
 
 //create database if doesnt exist
-$query = "CREATE DATABASE IF NOT EXISTS if0_38352683_CARS";
+$query = "CREATE DATABASE IF NOT EXISTS if0_38352683_vehicles";
 if ($mysqli->query("$query")) {
     echo "<p>Database Cars available</P>";
 } else {
-    echo "Had trouble with this SQL: CREATE DATABASE IF NOT EXISTS CARS";
+    echo "Had trouble with this SQL: CREATE DATABASE IF NOT EXISTS if0_38352683_vehicles";
 }
 
 //select a database to work with
 include('db_config.php');
 
 // drop the table inventory if it exists
-$query = "DROP TABLE IF EXISTS INVENTORY";
+$query = "DROP TABLE IF EXISTS inventory";
 if ($mysqli->query($query) === TRUE) {
     echo "Database table 'INVENTORY' dropped</P>";
 }else{
@@ -24,7 +24,7 @@ if ($mysqli->query($query) === TRUE) {
 
 
 /* Create table if doesnt exists and doesn't return a resultset */
-$query = " CREATE TABLE IF NOT EXISTS INVENTORY 
+$query = " CREATE TABLE IF NOT EXISTS inventory 
 ( VIN varchar(17) PRIMARY KEY, YEAR INT, MAKE varchar(50), MODEL varchar(100), 
 TRIM varchar(50), EXT_COLOR varchar (50), INT_COLOR varchar (50), ASKING_PRICE DECIMAL (10,2), 
 SALE_PRICE DECIMAL (10,2), PURCHASE_PRICE DECIMAL (10,2), MILEAGE int, TRANSMISSION varchar (50), 
@@ -36,14 +36,14 @@ if ($mysqli->query($query) === TRUE) {
     echo "<p>Error: </p>" . $mysqli->error;
 }
 
-$query = " DROP TABLE IF EXISTS IMAGES";
+$query = " DROP TABLE IF EXISTS images";
 if ($mysqli->query($query) === TRUE) {
     echo "Database table 'IMAGES' dropped</P>";
 }else{
     echo "<p>Error: </p>" . $mysqli->error;
 }
 
-$query = " CREATE TABLE IF NOT EXISTS IMAGES (ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT, VIN varchar(17), IMAGEFILE varchar(250))";
+$query = " CREATE TABLE IF NOT EXISTS images (ID INT PRIMARY KEY NOT NULL AUTO_INCREMENT, VIN varchar(17), IMAGEFILE varchar(250))";
 //echo "<p>***********</p>";
 //echo $query ;
 //echo "<p>***********</p>";
@@ -54,7 +54,7 @@ if ($mysqli->query($query) === TRUE) {
 }
 
 // Insert 31 other cars 
-$query3 = "INSERT IGNORE INTO `if0_38352683_CARS`.`INVENTORY` (`VIN`, `YEAR`, `MAKE`, `MODEL`, `TRIM`, `EXT_COLOR`, `INT_COLOR`, `ASKING_PRICE`, `SALE_PRICE`, `PURCHASE_PRICE`, `MILEAGE`, `TRANSMISSION`, `PURCHASE_DATE`, `SALE_DATE`)
+$query3 = "INSERT IGNORE INTO `if0_38352683_vehicles`.`inventory` (`VIN`, `YEAR`, `MAKE`, `MODEL`, `TRIM`, `EXT_COLOR`, `INT_COLOR`, `ASKING_PRICE`, `SALE_PRICE`, `PURCHASE_PRICE`, `MILEAGE`, `TRANSMISSION`, `PURCHASE_DATE`, `SALE_DATE`)
  VALUES
 ('5FNYF4H91CB054036', 2012, 'Honda', 'Pilot', 'Touring', 'White Diamond Pearl', 'Leather', 37807, NULL, 34250, 7076, 'Automatic', '2012-11-08', NULL),
 ('LAKSDFJ234LASKRF2', 2009, 'Dodge', 'Durango', 'SLT', 'Silver', 'Black', 2700, NULL, 2000, 144000, '4WD Automatic', '2012-12-05', NULL),

@@ -15,7 +15,7 @@ include('../scripts/db_connection.php');
 //select a database to work with
 include('../scripts/db_config.php');
 
-$query = "SELECT * FROM INVENTORY";
+$query = "SELECT * FROM inventory";
 /* Try to query the database */
 if ($result = $mysqli->query($query)) {
    // Don't do anything if successful.

@@ -15,7 +15,7 @@ include('../scripts/db_connection.php');
 include('../scripts/db_config.php');
 
 $vin = $_GET['VIN'];
-$query = "SELECT * FROM INVENTORY WHERE VIN='$vin'";
+$query = "SELECT * FROM inventory WHERE VIN='$vin'";
 /* Try to query the database */
 if ($result = $mysqli->query($query)) {
    // Don't do anything if successful.
@@ -41,7 +41,7 @@ echo "<p>Asking Price: $price </p>";
 echo "<p>Exterior Color: $color </p>";
 echo "<p>Interior Color: $interior </p>";
 
-$query = "SELECT * FROM IMAGES WHERE VIN='$vin'";
+$query = "SELECT * FROM images WHERE VIN='$vin'";
 /* Try to query the database */
 if ($result = $mysqli->query($query)) {
     $images = $result->fetch_all(MYSQLI_ASSOC);

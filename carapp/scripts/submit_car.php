@@ -13,7 +13,7 @@ $price =  $_REQUEST['ASKING_PRICE'] ;
 
 
 //Build a SQL Query using the values from above
-$query = "INSERT INTO INVENTORY
+$query = "INSERT INTO inventory
   (VIN, MAKE, MODEL, ASKING_PRICE)
    VALUES (
    '$vin', 
