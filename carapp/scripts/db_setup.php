@@ -1,7 +1,7 @@
 <?php
 session_start();
 //connect to database
-include('db_connection.php');
+include 'db_config.php';
 
 //create database if doesnt exist
 $query = "CREATE DATABASE IF NOT EXISTS if0_38352683_vehicles";
@@ -10,9 +10,6 @@ if ($mysqli->query("$query")) {
 } else {
     echo "Had trouble with this SQL: CREATE DATABASE IF NOT EXISTS if0_38352683_vehicles";
 }
-
-//select a database to work with
-include('db_config.php');
 
 // drop the table inventory if it exists
 $query = "DROP TABLE IF EXISTS inventory";

@@ -6,23 +6,78 @@ html{
     background: rgb(194, 194, 194);
 }
 
- header img{
-    float: left;
- }
+header {
+    background-color: #C2D9FE;
+    border:2px solid black;
+}
 
 body{
     font-family: Tahoma, Arial, sans-serif;
-    max-width: 900px;
+    max-width:85ch;
     margin: 0 auto;
     width: 90%;
 }
 
-h1, h2, header, footer{
+h1, h2, h3, header, footer, section, header p{
     text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
 }
 
-#Grid
-{
+h1, h2, h3, header p{
+    padding: 1ch;
+}
+
+input{
+    margin: .5ch auto;
+    max-width: 24ch;
+}
+
+section{
+    background-color: #C2D9FE;
+    max-width: fit-content;
+    margin: 0 auto;
+    padding: 1ch 2ch;
+    border:2px solid black;
+}
+
+section figure {
+    display: inline-block;
+    margin: 0.5ch;
+    text-align: center;
+    vertical-align: top;
+}
+
+section img {
+    width: 250px;
+    display: block;
+}
+
+.highlight {
+    background-color: yellow;
+}
+
+#sessionMessage, #messageSpaceSaver {
+    text-align: center;
+    max-width: fit-content;
+    margin: 1ch auto;
+    padding: .5ch 1ch;
+    border:1px solid black;
+    border-radius: 5px;
+}
+
+#sessionMessage {
+    background-color: yellow;
+}
+
+#messageSpaceSaver{
+    background-color:#C2D9FE;
+}
+
+
+#Grid {
+border:2px solid black;
+border-radius: 5px;
 table-layout: auto;
 width:100%;
 border-collapse:collapse;
@@ -37,7 +92,7 @@ padding:.4ch;
 
 tr td:last-child{
     text-align: center;
-    width: 25ch;
+    width: 21ch;
 }
 
 tr td:nth-last-of-type(2){

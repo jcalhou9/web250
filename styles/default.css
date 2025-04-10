@@ -6,9 +6,11 @@
     --sidebar_links: #7eff79;
     --header_footer: #0067ac;
     --header_footer_text: azure;
-    --main_headings: #0068ff;
+    --main_headings: #003366;
     --main_text: #063f00;
     --body: linear-gradient(#00ffe859, #3bff007d 15%, #3bff007d 92%, #00ffe859);
+    --heading_font: 'Roboto Slab', serif;
+    --body_font: 'Open Sans', sans-serif;
     font-size: 18px;
 }
 
@@ -26,22 +28,26 @@ header, footer{
     background-color: var(--header_footer);
     box-shadow:  0 0 10px 0;
     justify-content: center;
+    z-index: 10;
 }
 
 h1 {
     margin: 0;
     padding: 1ch;
+    font-family: var(--heading_font);
     color: var(--header_footer_text);
 }
 
 h2 {
     text-align: center;
+    font-family: var(--heading_font);
     color: var(--main_headings)
 }
 
 figure {
     margin: 1ch 0;
     text-align: center;
+    font-family: var(--body_font);
     color: var(--main_text);
 }
 
@@ -50,6 +56,7 @@ img{
 }
 
 p, main a, main dl{
+    font-family: var(--body_font);
     color: var(--main_text);
 }
 
@@ -88,10 +95,6 @@ footer a {
     color: var(--header_footer_text);
 }
 
-strong {
-    font-size: 19px;
-}
-
 aside {
     position: fixed;
     top:0;
@@ -99,6 +102,7 @@ aside {
     width: 25ch;
     height: 100vh;
     float: left;
+    box-shadow:  0 0 10px 0, 0 0 70px 0 #a1feb9;
     background-color: var(--sidebar);
     justify-content: center;
     display: flex;
@@ -106,6 +110,7 @@ aside {
 }
 
 .sidebar-headings{
+    font-family: var(--heading_font);
     color: var(--sidebar_heading);
     margin: 1ch 0;
     
@@ -123,22 +128,7 @@ aside {
 
 .page-links li a {
     text-decoration: none;
-    color:var(--sidebar_links);
-}
-
-.social-links {
-    list-style: none;
-    padding: 0;
-    margin-top: auto;
-    padding-bottom: 10ch;
-}
-
-.social-links li {
-    padding: 0.5ch 1ch
-}
-
-.social-links li a {
-    text-decoration: none;
+    font-family: var(--body_font);
     color:var(--sidebar_links);
 }
 

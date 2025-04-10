@@ -1,8 +1,4 @@
 <?php
-
-//connect to mysql
-include('db_connection.php');
-//select a database to work with
 include('db_config.php');
 
 if(isset($_POST['delete'])) {
@@ -27,9 +23,8 @@ if ($row = $result->fetch_assoc()) {
     }
 }
 
-header("Location: ../components/add_image.php?VIN=$vin");
+header("Location: ../index.php?sectionView=images&VIN=$vin");
 exit();
 
 }
-$mysqli->close();
 ?>
