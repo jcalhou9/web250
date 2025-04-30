@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<!-- Jeremy Calhoun
+WEB250-N850 Spring 25 -->
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Jeremy Calhoun's Jubilant Cheetah ~ WEB250 ~ Fizzbuzz</title>
+		<link rel="stylesheet" type="text/css" href="styles/default.css">
+    <link rel="stylesheet" type="text/css" href="styles/fizzbuzz.css">
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
+		<link rel="icon" type="image/x-icon" href="images/favicon.png">
+		<script src="https://lint.page/kit/880bd5.js" crossorigin="anonymous"></script>
+    <script src="scripts/fizzbuzz.js" defer></script>
+		<script src="scripts/dynamic.js" defer></script>
+	</head>
+	<body>
+		<aside>
+			<!-- content is in components/sidebar.html and handled by scripts/dynamic.js -->
+		</aside>
+		<header>
+			<!-- content is in components/header.html and handled by scripts/dynamic.js -->
+		</header>
+        <main>
+            <h2>Fizz Buzz</h2>
+            <h3 id="greeting">Welcome to Fizz Buzz</h3>
+            <!-- top form -->
+            <form id="form">
+                <fieldset class="name">
+                  <legend>Please enter your name.</legend>
+                  <label for="first-name">First Name</label>
+                  <input id="first-name" placeholder="First Name">
+                  <label for="middle-initial">Middle Initial</label>
+                  <input id="middle-initial" placeholder="MI" maxlength="1">
+                  <label for="last-name">Last Name</label>
+                  <input id="last-name" placeholder="Last Name">
+                </fieldset>
+                <!-- bottom form -->
+                <fieldset class="bottom">
+                  <legend>Please enter your favorite words and a corresponding divisor.</legend>
+                  <div class="form-grid">
+                    <!-- row 1 -->
+                    <label for="word1">First Word</label>
+                    <input id="word1" type="text" value="Two" required>
+                    <label for="divisor1">First Number</label>
+                    <input id="divisor1" type="number" value="3" required>
+                    <!-- row 2 -->
+                    <label for="word2">Second Word</label>
+                    <input id="word2" type="text" value="Three" required>
+                    <label for="divisor2">Second Number</label>
+                    <input id="divisor2" type="number" value="5" required>
+                    <!-- row 3 -->
+                    <label for="word3">Third Word</label>
+                    <input id="word3" type="text" value="Four" required>
+                    <label for="divisor3">Third Number</label>
+                    <input id="divisor3" type="number" value="7" required>
+                    <!-- row 4 -->
+                    <label for="main-word">Default Word</label>
+                    <input id="main-word" type="text" value="One">
+                    <label for="count-limit">Number Limit</label>
+                    <input id="count-limit" type="number" value="111" required>
+                  </div>
+                  <!-- buttons -->
+                  <div class="buttons">
+                    <button id="submit" type="submit">Let’s go</button>
+                    <button id="reset" type="reset">Reset</button>
+                  </div>
+                </fieldset>
+              </form>
+              <!-- output -->
+              <div id="output-wrapper">
+                <div id="output" class="fizzbuzz-columns">
+                  <ul id="col1"></ul>
+                  <ul id="col2"></ul>
+                  <ul id="col3"></ul>
+                </div>
+              </div>
+        </main>
+        <footer>
+			<!-- content is in components/footer.html and handled by scripts/dynamic.js -->
+		</footer>
+	</body>
+</html>

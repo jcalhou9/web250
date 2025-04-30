@@ -1,0 +1,157 @@
+/* Jeremy Calhoun */
+/* WEB250-N850 Spring 25  */
+fieldset {
+    max-width: 90ch;
+    margin: auto;
+    display: block;
+    margin-bottom: 1ch;
+    box-sizing: border-box;
+    border: 3px solid #aaa;
+    font-family: var(--body_font);
+}
+
+legend{
+    text-align: center;
+}
+
+#greeting {
+    text-align: center;
+    color: var(--main_headings);
+}
+
+#middle-initial {
+    max-width: 3ch;
+}
+
+input {
+    border-radius: 0.4ch;
+    font-size: 0.9em;
+    line-height: 1;
+    padding: 0.2ch 0.6ch;
+    box-sizing: border-box;
+    width: 100%;
+    font-family: var(--body_font);
+}
+
+.name input {
+    max-width: 17ch;
+}
+
+#divisor1, #divisor2, #divisor3, #count-limit {
+    max-width: 6ch;
+}
+
+.bottom .form-grid {
+    display: grid;
+    grid-template-columns: auto 17ch auto 6ch;
+    column-gap: 1ch;
+    row-gap: 1ch;
+    align-items: center;
+    max-width: 70ch;
+    margin: auto;
+    padding-left: 4ch;
+    padding-right: 4ch;
+}
+
+.bottom .form-grid label {
+    text-align: left;
+    padding-right: 0.5ch;
+    white-space: nowrap;
+    font-weight: bold;
+    font-family: var(--body_font);
+}
+
+.bottom .form-grid input[type="text"] {
+    max-width: 17ch;
+}
+
+.bottom .form-grid input[type="number"] {
+    width: 6ch;
+}
+
+button {
+    height: 3ch;
+    width: 10ch;
+    color: var(--header_footer_text);
+    font-weight: bold;
+    font-family: var(--body_font);
+    background-color: var(--header_footer);
+    border: none;
+    border-radius: 0.5ch;
+    font-size: 1rem;
+    line-height: 1;
+    padding: 0;
+}
+
+button:hover {
+    background-color: var(--main_headings);
+    color: var(--header_footer_text);
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 3ch;
+    clear: both;
+    margin: 2ch auto auto;
+    max-width: 66ch;
+}
+
+#output-wrapper {
+    display: none;
+    border: 3px solid #aaa;
+    border-radius: 0.5ch;
+    padding: 1ch 2ch;
+    max-width: 90ch;
+    margin: 3ch auto;
+    font-family: var(--body_font);
+}
+
+/* output container with 3 columns using flexbox */
+#output.fizzbuzz-columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 3ch;
+    max-width: 90ch;
+    margin: auto;
+    padding: 0;
+}
+
+/* individual column lists */
+#output.fizzbuzz-columns ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+    color: var(--main_text);
+    font-family: var(--body_font);
+}
+
+#output.fizzbuzz-columns li {
+    margin-bottom: 0.5ch;
+}
+
+@media only screen and (max-width: 120ch) {
+    .bottom .form-grid {
+        grid-template-columns: auto 1fr;
+        max-width: 90%;
+    }
+
+    .bottom .form-grid label {
+        text-align: left;
+        margin-top: 1ch;
+    }
+
+    .bottom .form-grid input[type="text"], .bottom .form-grid input[type="number"] {
+        max-width: 17ch;
+        width: 100%;
+    }
+
+    #output.fizzbuzz-columns {
+        flex-direction: column;
+    }
+
+    #output.fizzbuzz-columns ul {
+        margin-bottom: 2ch;
+    }
+}
