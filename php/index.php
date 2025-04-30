@@ -1,6 +1,7 @@
 <?php
+//handles valid pages and default to home if not
 $content = isset($_GET['content']) ? $_GET['content'] : 'home';
-$pages = ['home', 'introduction', 'contract'];
+$pages = ['home', 'introduction', 'contract', 'introductionForm'];
 if(!in_array($content, $pages)) {
     $content = 'home';
 }
@@ -20,6 +21,10 @@ if(!in_array($content, $pages)) {
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto+Slab:wght@400;700&display=swap" rel="stylesheet">
 		<link rel="icon" type="image/x-icon" href="./images/favicon.png">
 		<script src="https://lint.page/kit/880bd5.js" crossorigin="anonymous"></script>
+        <!-- script only if introductionForm -->
+        <?php if ($content === 'introductionForm'): ?>
+            <script src="scripts/introductionForm.js" defer></script>
+        <?php endif; ?>
 	</head>
 	<body>
 		<aside>
@@ -27,9 +32,12 @@ if(!in_array($content, $pages)) {
                 <a href="index.php?content=home"><img src="./images/clover2.png" alt="Three leaf clover"></a>
                 <h3 class="sidebar-headings">PHP pages</h3>
                 <ul class="page-links">
+                    <!-- sets content to selected page -->
                     <li><a href="index.php?content=home">Home</a></li>
                     <li><a href="index.php?content=contract">Contract</a></li>
                     <li><a href="index.php?content=introduction">Introduction</a></li>
+                    <li><a href="index.php?content=introductionForm">Introduction Form</a></li>
+                    <li><a href="../fizzbuzz.html">Fuzz Buzz</a></li>
                     <li><a href="../">Static Website</a></li>
                 </ul>
                 <h3 class="sidebar-headings">External pages</h3>

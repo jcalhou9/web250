@@ -60,7 +60,7 @@ p, main a, main dl{
     color: var(--main_text);
 }
 
-main dl {
+main dl{
     padding: 0;
 	max-width: 100ch;
 }
@@ -142,4 +142,61 @@ aside {
     main {
         padding-left: clamp(14ch, 35%, 30ch);
     }
+}
+
+.intro-form {
+    max-width: 100ch;
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.intro-form input,
+.intro-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 1ch;
+    font-size: 18px;
+}
+
+  
+button {
+    height: auto;
+    width: auto;
+    color: var(--header_footer_text);
+    font-weight: bold;
+    font-family: var(--body_font);
+    background-color: var(--header_footer);
+    border: none;
+    border-radius: 0.5ch;
+    padding: .6ch;
+    font-size: .9rem;
+    margin-bottom: 1ch;
+}
+
+
+button:hover {
+    background-color: var(--main_headings);
+    color: var(--header_footer_text);
+}
+
+.course-list {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.course-input {
+    margin-bottom: 1ch;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.add-course {
+    margin-top: 1ch;
+}
+
+.form-buttons {
+    text-align: center;
+    margin-top: 2ch;
 }
