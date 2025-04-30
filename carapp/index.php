@@ -12,7 +12,6 @@ session_start();
 	<body>
 		<header>
 			<h1>Jeremy's Used Cars</h1>
-			<p>Work in progress</p>
 		</header>
 		<main>
 			<h2>Welcome to Jeremy's Used car lot!</h2>
