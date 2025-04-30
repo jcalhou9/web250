@@ -103,7 +103,13 @@
             <!-- handles the courses separately since there is more than one input -->
             <?php if ($sectionTitle === "Courses I'm Taking & Why"): ?>
                 <?php foreach ($sectionValue as $line): ?>
-                    <dd><?= htmlspecialchars($line) ?></dd>
+                    <?php
+                        //splits if there is a colon and displays the line with a strong tag for the first part
+                        $parts = explode(':', $line, 2);
+                        echo isset($parts[1])
+                            ? '<dd><strong>' . htmlspecialchars($parts[0]) . '</strong>:' . htmlspecialchars($parts[1]) . '</dd>'
+                            : '<dd>' . htmlspecialchars($line) . '</dd>';
+                    ?>
                 <?php endforeach; ?>
             <!-- handles the other sections -->
             <?php else: ?>
