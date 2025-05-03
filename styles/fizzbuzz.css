@@ -41,7 +41,7 @@ input {
     max-width: 6ch;
 }
 
-.bottom .form-grid {
+.bottom .form_grid {
     display: grid;
     grid-template-columns: auto 17ch auto 6ch;
     column-gap: 1ch;
@@ -53,7 +53,7 @@ input {
     padding-right: 4ch;
 }
 
-.bottom .form-grid label {
+.bottom .form_grid label {
     text-align: left;
     padding-right: 0.5ch;
     white-space: nowrap;
@@ -61,11 +61,11 @@ input {
     font-family: var(--body_font);
 }
 
-.bottom .form-grid input[type="text"] {
+.bottom .form_grid input[type="text"] {
     max-width: 17ch;
 }
 
-.bottom .form-grid input[type="number"] {
+.bottom .form_grid input[type="number"] {
     width: 6ch;
 }
 
@@ -132,17 +132,17 @@ button:hover {
 }
 
 @media only screen and (max-width: 120ch) {
-    .bottom .form-grid {
+    .bottom .form_grid {
         grid-template-columns: auto 1fr;
         max-width: 90%;
     }
 
-    .bottom .form-grid label {
+    .bottom .form_grid label {
         text-align: left;
         margin-top: 1ch;
     }
 
-    .bottom .form-grid input[type="text"], .bottom .form-grid input[type="number"] {
+    .bottom .form_grid input[type="text"], .bottom .form_grid input[type="number"] {
         max-width: 17ch;
         width: 100%;
     }
