@@ -6,8 +6,8 @@ document.getElementById("reset").onclick = () => {
     document.getElementById("greeting").textContent = "let's go again!";
     ['col1', 'col2', 'col3'].forEach((id) =>
         document.getElementById(id).textContent = ''
-    );
-    document.getElementById("output-wrapper").style.display = 'none';
+);
+document.getElementById("output-wrapper").style.display = 'none';
 };
 
 //form submit
@@ -17,19 +17,33 @@ document.getElementById("form").onsubmit = (event) => {
     const columns = ['col1', 'col2', 'col3'].map((id) =>
         document.getElementById(id)
     );
-    
+
     //clear output
     columns.forEach((col) => col.textContent = '');
     outputWrapper.style.display = 'none';
+
     // get and format name or default
-    let firstName = document.getElementById("first-name").value.trim();
+    const firstNameField = document.getElementById("first-name");
+    const lastNameField = document.getElementById("last-name");
+    let firstName = firstNameField.value.trim();
+    let lastName = lastNameField.value.trim();
     const middleInitial = document.getElementById("middle-initial").value.trim();
-    let lastName = document.getElementById("last-name").value.trim();
     const mainWord = document.getElementById("main-word").value.trim();
-    if (!firstName || !lastName) {
-        firstName = "guest";
-        lastName = "user";
+
+    // require both if one is filled
+    if ((firstName && !lastName) || (!firstName && lastName)) {
+        const missingField = firstName ? lastNameField : firstNameField;
+        missingField.setCustomValidity("Required");
+        missingField.reportValidity();
+        return;
     }
+    
+    // default if both are empty
+    if (!firstName && !lastName) {
+        firstName = "Guest";
+        lastName = "User";
+    }
+
     const fullName = middleInitial
         ? `${firstName} ${middleInitial}. ${lastName}`
         : `${firstName} ${lastName}`;
