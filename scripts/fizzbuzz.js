@@ -27,7 +27,7 @@ document.getElementById("form").onsubmit = (event) => {
     const lastNameField = document.getElementById("last-name");
     let firstName = firstNameField.value.trim();
     let lastName = lastNameField.value.trim();
-    const middleInitial = document.getElementById("middle-initial").value.trim();
+    let middleInitial = document.getElementById("middle-initial").value.trim();
     const mainWord = document.getElementById("main-word").value.trim();
 
     // require both if one is filled
@@ -42,6 +42,7 @@ document.getElementById("form").onsubmit = (event) => {
     if (!firstName && !lastName) {
         firstName = "Guest";
         lastName = "User";
+        middleInitial = "";
     }
 
     const fullName = middleInitial
