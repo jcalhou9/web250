@@ -1,0 +1,63 @@
+header nav {
+    text-align: center;
+    margin-top: 1ch;
+    position: relative;
+}
+
+header nav a {
+    margin: 0 1ch;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.userGreeting {
+    position: absolute;
+    right: 2ch;
+    top: 0;
+    font-weight: bold;
+    font-size: 1rem;
+    color: black;
+}
+
+#sessionMessage, #messageSpaceSaver {
+    text-align: center;
+    max-width: fit-content;
+    margin: 1ch auto;
+    padding: 0.5ch 1ch;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#sessionMessage {
+    background-color: yellow;
+}
+
+#messageSpaceSaver {
+    background-color: #C2D9FE;
+}
+
+.pageNavigation {
+    text-align: center;
+    margin-bottom: 2ch;
+}
+
+.pageNavigation a, .pageNavigation strong {
+    display: inline-block;
+    margin: 0 0.3ch;
+    padding: 0.4ch 1ch;
+    text-decoration: none;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+}
+
+.pageNavigation strong {
+    background-color: #C2D9FE;
+    font-weight: bold;
+}
+
+.pageNavigation a:hover {
+    background-color: #ddd;
+}

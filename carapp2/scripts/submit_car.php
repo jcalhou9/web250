@@ -1,34 +1,64 @@
-<?php 
-include 'db_config.php';
-
+<?php
 session_start();
-// Capture the values posted to this php program from the text fields
-$vin =  trim( $_REQUEST['VIN']);
-$year =  trim( $_REQUEST['YEAR']);
-$make = trim( $_REQUEST['MAKE']);
-$model = trim( $_REQUEST['MODEL']);
-$price =  $_REQUEST['ASKING_PRICE'];
+require 'db_config.php';
+//form input
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $vin = trim($_POST['VIN']);
+    $year = trim($_POST['YEAR']);
+    $make = trim($_POST['MAKE']);
+    $model = trim($_POST['MODEL']);
+    $trim = trim($_POST['TRIM']);
+    $extColor = trim($_POST['EXT_COLOR']);
+    $intColor = trim($_POST['INT_COLOR']);
+    $askingPrice = trim($_POST['ASKING_PRICE']);
+    $salePrice = trim($_POST['SALE_PRICE']);
+    $purchasePrice = trim($_POST['PURCHASE_PRICE']);
+    $mileage = trim($_POST['MILEAGE']);
+    $transmission = trim($_POST['TRANSMISSION']);
+    $purchaseDate = trim($_POST['PURCHASE_DATE']);
+    $saleDate = trim($_POST['SALE_DATE']);
+    //required fields
+    if (in_array('', [$vin, $make, $model, $askingPrice], true)) {
+        $_SESSION['message'] = "VIN, Make, Model, and Asking Price are required.";
+        header("Location: ../index.php?sectionView=add");
+        exit;
+    }
+    try {
+        //prepare insert statement
+        $stmt = $mysqli->prepare(
+            "INSERT INTO inventory 
+            (VIN, YEAR, MAKE, MODEL, TRIM, EXT_COLOR, INT_COLOR, ASKING_PRICE, SALE_PRICE, PURCHASE_PRICE, MILEAGE, TRANSMISSION, PURCHASE_DATE, SALE_DATE)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        );
+        //bind inputs to statement
+        $stmt->bind_param(
+            "sissssssddisss",
+            $vin, $year, $make, $model, $trim, $extColor, $intColor,
+            $askingPrice, $salePrice, $purchasePrice, $mileage, $transmission,
+            $purchaseDate, $saleDate
+        );
+        $stmt->execute();
 
-if (in_array('', [$vin, $year, $make, $model, $price], true)) {
-    $_SESSION['message'] = "All fields are required.";
-    header("Location: ../");
+        //locate vin position in inventory
+        $query = "SELECT VIN FROM inventory ORDER BY MAKE, MODEL, ASKING_PRICE";
+        $result = $mysqli->query($query);
+        $position = 0;
+        while ($row = $result->fetch_assoc()) {
+            $position++;
+            if ($row['VIN'] === $vin) break;
+        }
+        $_SESSION['highlightEntry'] = $vin;
+        $_SESSION['highlightPage'] = ceil($position / ($_SESSION['carsPerPage'] ?? 25));
+        $_SESSION['message'] = "Car added successfully.";
+        $stmt->close();
+    } catch (mysqli_sql_exception $e) {
+        if ($e->getCode() == 1062) {
+            $_SESSION['message'] = "A car with VIN $vin already exists.";
+        } else {
+            $_SESSION['message'] = "Database error: " . $e->getMessage();
+        }
+    }
+
+    header("Location: ../index.php?page=$pageNumber#highlightedCar");
     exit;
 }
-
-$carInsertStatement = $mysqli->prepare(
-    "INSERT IGNORE INTO inventory (VIN, YEAR, MAKE, MODEL, ASKING_PRICE)
-    VALUES (?,?,?,?,?)");
-$carInsertStatement->bind_param("ssssd", $vin, $year, $make, $model, $price);
-$carInsertStatement->execute();
-
-/* Try to insert the new car into the database */
-$_SESSION['message'] = ($carInsertStatement->affected_rows)
-    ? "You have successfully entered $make $model into the database."
-    : "A car with VIN $vin already exists.";
-
-$_SESSION['highlightEntry'] = $vin;
-
-$carInsertStatement->close();
-header("Location: ../");
-exit;
-?>

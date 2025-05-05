@@ -1,0 +1,143 @@
+.carGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(26ch, 1fr));
+    gap: 2ch;
+    margin: 2ch auto;
+    max-width: 160ch;
+    padding: 0 2ch;
+    box-sizing: border-box;
+}
+
+.carCard {
+    position: relative;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1ch;
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+}
+
+.carCard.highlight {
+    background-color: yellow;
+}
+
+.carThumbnail {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.carInfo {
+    margin-top: 0;
+}
+
+.carTitle {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.2ch;
+}
+
+.carVin {
+    font-size: 0.9rem;
+    color: #333;
+    margin-top: 0.2ch;
+    margin-bottom: 2ch;
+}
+
+.carPrice {
+    position: absolute;
+    bottom: 1ch;
+    right: 1ch;
+    font-size: 1rem;
+    font-weight: bold;
+    color: black;
+}
+
+.carActions {
+    margin-top: 0.6ch;
+    display: flex;
+    gap: 1ch;
+}
+
+.carActions a.button {
+    display: inline-block;
+    padding: 0.4ch 1ch;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    text-decoration: none;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.carActions a.editBtn {
+    background-color: #4a90e2;
+}
+
+.carActions a.deleteBtn {
+    background-color: #e94e4e;
+}
+
+.carActions a.button:hover {
+    filter: brightness(1.1);
+}
+
+.imageGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2ch;
+    margin-top: 2ch;
+}
+
+.imageCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 25ch;
+    text-align: center;
+}
+
+.uploadedImage {
+    width: 100%;
+    max-width: 25ch;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.imageScroller {
+    display: flex;
+    overflow-x: auto;
+    gap: 1ch;
+    padding: 1ch;
+    margin: 2ch auto 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    scroll-behavior: auto;
+    max-width: 50ch;
+    justify-content: flex-start;
+    background-color: #C2D9FE;
+    scroll-snap-type: x mandatory;
+}
+
+.imageScroller figure {
+    flex: 0 0 auto;
+    margin: 0;
+    text-align: center;
+    flex: 0 0 auto;
+}
+
+.imageScroller img {
+    width: 25ch;
+    height: auto;
+    border: 1px solid #666;
+    border-radius: 4px;
+    margin: auto;
+}
+
+.imageScroller.singleImage {
+    justify-content: center;
+}

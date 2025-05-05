@@ -1,0 +1,129 @@
+#Grid {
+    border: 2px solid black;
+    border-radius: 5px;
+    table-layout: auto;
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 5ch;
+}
+
+#Grid td, #Grid th {
+    font-size: 1rem;
+    border: 1px solid black;
+    padding: 0.4ch;
+}
+
+#Grid th {
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 0.5ch;
+    background-color: #C2D9FE;
+}
+
+#Grid tr:hover td {
+    background-color: #eef;
+}
+
+tr td:last-child {
+    text-align: center;
+    width: 21ch;
+}
+
+tr td:nth-last-of-type(2) {
+    text-align: right;
+    width: 12ch;
+}
+
+form input, form select, form button {
+    display: block;
+    font-size: 1rem;
+    padding: 0.5ch;
+    margin: 0.5ch auto;
+    width: 100%;
+    max-width: 20ch;
+    border: 1px solid #999;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form label {
+    font-weight: bold;
+    display: block;
+    text-align: left;
+    max-width: 30ch;
+
+}
+
+.carFormGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20ch, 1fr));
+    gap: .5ch;
+    justify-content: center;
+    max-width: 100ch;
+    margin: auto;
+    padding: .5ch;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #f1efef;
+    border: 1px solid #333;
+    padding: 0.5ch 1ch;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    max-width: 8ch;
+}
+
+button:hover {
+    background-color: #dbdada;
+}
+
+.closeButton {
+    position: absolute;
+    top: 0.25ch;
+    right: 0.5ch;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.closeButton:hover {
+    color: red;
+}
+
+.carsPerPageForm {
+    text-align: center;
+    margin-top: 2ch;
+}
+
+.inlineControls {
+    display: inline-flex;
+    align-items: center;
+    gap: 1ch;
+    justify-content: center;
+}
+
+#limit {
+    width: 7ch;
+}
+
+.carDetailsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30ch, 1fr));
+    gap: 1ch 2ch;
+    margin: 2ch auto;
+    padding: 1ch;
+    max-width: 100ch;
+    box-sizing: border-box;
+}
+
+.fieldPair {
+    display: flex;
+    gap: 0.5ch;
+    align-items: baseline;
+}

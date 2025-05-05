@@ -1,37 +1,68 @@
 <?php
+session_start();
 include('db_config.php');
 
-session_start();
-// Capture the values posted to this php program from the text fields in the form
-$vin =  trim( $_REQUEST['VIN']);
-$year = trim( $_REQUEST['YEAR']);
-$make = trim( $_REQUEST['MAKE']);
-$model = trim( $_REQUEST['MODEL']);
-$price =  $_REQUEST['ASKING_PRICE'];
+//form input
+$vin = trim($_POST['VIN']);
+$year = trim($_POST['YEAR']);
+$make = trim($_POST['MAKE']);
+$model = trim($_POST['MODEL']);
+$trim = trim($_POST['TRIM']);
+$extColor = trim($_POST['EXT_COLOR']);
+$intColor = trim($_POST['INT_COLOR']);
+$askingPrice = trim($_POST['ASKING_PRICE']);
+$salePrice = trim($_POST['SALE_PRICE']);
+$purchasePrice = trim($_POST['PURCHASE_PRICE']);
+$mileage = trim($_POST['MILEAGE']);
+$transmission = trim($_POST['TRANSMISSION']);
+$purchaseDate = trim($_POST['PURCHASE_DATE']);
+$saleDate = trim($_POST['SALE_DATE']);
 
-
-if (in_array('', [$vin, $make, $model, $price], true)) {
-    $_SESSION['message'] = "All fields are required.";
+//required fields
+$requiredFields = [$vin, $make, $model, $askingPrice];
+if (in_array('', $requiredFields, true)) {
+    $_SESSION['message'] = "VIN, Make, Model, and Asking Price are required.";
     header("Location: ../index.php?sectionView=edit&VIN=$vin");
     exit;
 }
 
+//prepare update statement
 $carEditStatement = $mysqli->prepare(
-    "UPDATE inventory
-    SET YEAR=?, MAKE=?, MODEL=?, ASKING_PRICE=?
-    WHERE VIN=?" 
+    "UPDATE inventory SET 
+        YEAR = ?, MAKE = ?, MODEL = ?, TRIM = ?, EXT_COLOR = ?, INT_COLOR = ?, 
+        ASKING_PRICE = ?, SALE_PRICE = ?, PURCHASE_PRICE = ?, MILEAGE = ?, TRANSMISSION = ?, 
+        PURCHASE_DATE = ?, SALE_DATE = ?, PRIMARY_IMAGE = ?
+     WHERE VIN = ?"
 );
-$carEditStatement->bind_param("sssds", $year, $make, $model, $price, $vin);
+//bind imputs to statement
+$carEditStatement->bind_param(
+    "issssssddisssss",
+    $year, $make, $model, $trim, $extColor, $intColor,
+    $askingPrice, $salePrice, $purchasePrice, $mileage, $transmission,
+    $purchaseDate, $saleDate, $primaryImage, $vin
+);
 $carEditStatement->execute();
-
-/* Try to insert the new car into the database */
+//update message
 $_SESSION['message'] = $carEditStatement->affected_rows
-    ? "You have successfully updated $year $make $model in the database."
-    : "No changes made or VIN: $vin not found.";
-
+    ? "Successfully updated $year $make $model."
+    : "No changes made or VIN $vin not found.";
+//highlight the updated car
 $_SESSION['highlightEntry'] = $vin;
 
+//locate vin position in inventory
+$query = "SELECT VIN FROM inventory ORDER BY MAKE, MODEL, ASKING_PRICE";
+$result = $mysqli->query($query);
+$position = 0;
+while ($row = $result->fetch_assoc()) {
+    $position++;
+    if ($row['VIN'] === $vin) break;
+}
+//find the page number
+$limit = $_SESSION['carsPerPage'] ?? 25;
+$_SESSION['highlightPage'] = ceil($position / $limit);
+
+//redirect to affected page
 $carEditStatement->close();
-header("Location: ../index.php?sectionView=edit&VIN=$vin");
+header("Location: ../index.php?page=$pageNumber#highlightedCar");
 exit;
 ?>

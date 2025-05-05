@@ -1,42 +1,33 @@
 <?php
+session_start();
 include 'db_config.php';
-
+//get vin and file
 $vin = trim($_POST['VIN']);
 $file = $_FILES["file"];
-$fileName = basename($file['name']);
-$fileSize = $file['size'] / 1024;
+$originalName = basename($file['name']);
+$ext = pathinfo($originalName, PATHINFO_EXTENSION);
+//handles dublicate file names
+$uniqueName = time() . '_' . preg_replace('/[^a-zA-Z0-9_\-\.]/', '_', $originalName);
 $fileTmpName = $file['tmp_name'];
 $fileError = $file["error"];
-
 if ($fileError > 0) {
-    echo "Error: $fileError<br>";
+    $_SESSION['message'] = "File upload error: $fileError";
 } else {
-    $targetPath = __DIR__ . "/../images/uploads/" . $fileName;
-    $imageName = "../images/uploads/" . $fileName;
-
+    $targetPath = __DIR__ . "/../images/uploads/" . $uniqueName;
+    //move to uploads and saves file record to database
     if (move_uploaded_file($fileTmpName, $targetPath)) {
-        echo "The file $fileName has been uploaded.<br>";
-
         $query = "INSERT INTO images (VIN, IMAGEFILE) VALUES (?, ?)";
-        if ($imageInsertStatement = $mysqli->prepare($query)) {
-            $imageInsertStatement->bind_param("ss", $vin, $fileName);
-            if ($imageInsertStatement->execute()) {
-                echo "<p>Successfully entered $fileName into the database.</p>";
-                echo "<a href='add_image.php?VIN=$vin'>Add another image for this car</a>";
-                echo "<br><img src='$imageName'><br>";
-            } else {
-                echo "Error entering $vin into database: " . $imageInsertStatement->error . "<br>";
-            }
-            $imageInsertStatement->close();
+        $stmt = $mysqli->prepare($query);
+        $stmt->bind_param("ss", $vin, $uniqueName);
+        if ($stmt->execute()) {
+            $_SESSION['message'] = "Uploaded and added $fileName successfully.";
         } else {
-            echo "Failed to prepare the query: " . $mysqli->error . "<br>";
+            $_SESSION['message'] = "DB insert error for image: " . $stmt->error;
         }
-
-        $mysqli->close();
+        $stmt->close();
     } else {
-        echo "There was an error uploading the file, please try again!";
+        $_SESSION['message'] = "Failed to move uploaded file.";
     }
 }
-
-header("Location: ../index.php?sectionView=images&VIN=$vin");
+header("Location: ../index.php?sectionView=edit&VIN=$vin#images");
 exit;

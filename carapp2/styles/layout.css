@@ -1,0 +1,73 @@
+:root {
+    font-size: 18px;
+}
+
+html {
+    background: rgb(194, 194, 194);
+}
+
+body {
+    font-family: Tahoma, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.pageContainer {
+    max-width: 160ch;
+    margin: 0 auto;
+    padding: 0 2ch;
+}
+
+main {
+    padding: 2ch;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, p {
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    border-radius: 5px;
+}
+
+header {
+    background-color: #C2D9FE;
+    border: 2px solid black;
+    padding: 2ch;
+    text-align: center;
+    max-width: 162ch;
+    margin: 0 auto;
+    position: relative;
+}
+
+.messageBox {
+    text-align: center;
+    background-color: #C2D9FE;
+    border: 1px solid black;
+    border-radius: 5px;
+    max-width: fit-content;
+    margin: 1ch auto;
+    padding: 0.5ch 1ch;
+}
+
+section {
+    position: relative;
+    background-color: #C2D9FE;
+    max-width: fit-content;
+    margin: 0 auto;
+    padding: 1ch 2ch;
+    border: 2px solid black;
+}
+
+section figure {
+    display: inline-block;
+    margin: 0.5ch;
+    text-align: center;
+    vertical-align: top;
+}
+
+section img {
+    width: 25ch;
+    display: block;
+}
