@@ -63,7 +63,7 @@ if (isset($_POST['edit_log'], $_POST['log_id'])) {
     redirectHome();
 }
 
-//update work log
+//update worklog
 if (isset($_POST['update_log'], $_POST['log_id'])) {
     $logId = (int) $_POST['log_id'];
     $logDate = trim($_POST['log_date'] ?? '');

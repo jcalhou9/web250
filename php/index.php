@@ -48,6 +48,7 @@ if(!in_array($content, $pages)) {
                     <li><a href="../joyofphp/src/samsusedcars.html">Sam's Used Cars</a></li>
                     <li><a href="../carapp">Jeremy's Used Cars</a></li>
                     <li><a href="../carapp2">Jubilant Cheetah's Used Cars</a></li>
+                    <li><a href="project">Worklog Manager</a></li>
                     
                 </ul>
                 <h3 class="sidebar-headings">External links</h3>

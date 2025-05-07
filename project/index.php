@@ -10,12 +10,12 @@ $view = $_GET['view'] ?? 'login';
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Work Log</title>
+    <title>Worklog Manager</title>
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/layout.css">
 </head>
 <body>
-<h2>Work Log</h2>
+<h2>Worklog Manager</h2>
 <!-- check login status to determine what to show -->
 <?php if (!isset($_SESSION['user_id'])): ?>
     <?php include 'components/auth_forms.php'; ?>
