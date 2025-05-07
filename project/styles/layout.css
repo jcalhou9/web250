@@ -1,0 +1,72 @@
+.log_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2ch;
+}
+
+.log_table th, .log_table td {
+    border: 1px solid var(--border);
+    padding: 1ch 1.5ch;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 1rem;
+}
+
+.log_table th {
+    background-color: var(--primary);
+    color: #ffffff;
+}
+
+.log_table td:last-child {
+    text-align: center;
+}
+
+.no_logs {
+    text-align: center;
+    font-style: italic;
+    color: #666666;
+}
+
+.inline_form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.inline_form input[type="submit"] {
+    width: auto;
+    padding: 0.5ch 1.5ch;
+    font-size: 0.9rem;
+}
+
+.log_form.editing {
+    border-left: 5px solid var(--primary);
+    background-color: #fdfdfd;
+}
+
+.auth_toggle {
+    text-align: center;
+    margin-top: 2ch;
+    font-size: 1rem;
+}
+
+.auth_toggle a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.auth_toggle a:hover {
+    text-decoration: underline;
+}
+
+.datetime_row {
+    display: flex;
+    gap: 2ch;
+    justify-content: space-between;
+}
+
+.datetime_row label {
+    flex: 1;
+}

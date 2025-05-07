@@ -1,0 +1,122 @@
+:root {
+    --fontBody: 'Segoe UI', Tahoma, sans-serif;
+    --background: #f4f4f4;
+    --backgroundDark: #1e1e1e;
+    --primary: #0067ac;
+    --accent: #00c2ff;
+    --error: #d94444;
+    --success: #38a169;
+    --textDark: #222222;
+    --textLight: #f0f0f0;
+    --border: #cccccc;
+    font-size: 1rem;
+}
+
+body {
+    font-family: var(--fontBody);
+    background-color: var(--background);
+    color: var(--textDark);
+    margin: 0;
+    padding: 4ch;
+    line-height: 1.6;
+}
+
+h2 {
+    margin: 0 auto 2ch;
+    text-align: center;
+}
+
+.auth_forms, .log_form, .log_table_wrapper {
+    max-width: 35ch;
+    margin: 4ch auto;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 4ch;
+    box-shadow: 0 2px 6px #0000001a;
+}
+
+.auth_forms {
+    max-width: 35ch;
+}
+
+.log_form {
+    max-width: 70ch;
+}
+
+.log_table_wrapper {
+    max-width: 120ch;
+}
+
+.auth_form, .log_form {
+    display: flex;
+    flex-direction: column;
+    gap: 2ch;
+}
+
+.auth_form h3, .log_form h3, .log_table_wrapper h3 {
+    margin: 0 auto 2ch;
+    text-align: center;
+    color: var(--primary);
+    font-size: 1.25rem;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 600;
+    margin-bottom: 1ch;
+}
+
+input[type="text"], input[type="password"], input[type="date"], input[type="time"], textarea {
+    padding: 1ch;
+    font-size: 1rem;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background-color: #ffffff;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 8ch;
+}
+
+input[type="submit"], button[type="submit"], .auth_form input[type="submit"] {
+    background-color: var(--primary);
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 1ch 2ch;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: auto;
+    align-self: center;
+    margin: .5ch;
+}
+
+input[type="submit"]:hover, button[type="submit"]:hover {
+    background-color: var(--accent);
+}
+
+button.cancel_button {
+    background-color: var(--error);
+    margin-left: 2ch;
+}
+
+.success_message, .error_message {
+    padding: 1.5ch 2ch;
+    margin-bottom: 2ch;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.success_message {
+    background-color: var(--success);
+    color: #ffffff;
+}
+
+.error_message {
+    background-color: var(--error);
+    color: #ffffff;
+}
