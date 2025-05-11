@@ -15,6 +15,7 @@ if (isset($_SESSION['highlightPage'])) {
 		<link rel="stylesheet" type="text/css" href="styles/layout.css">
 		<link rel="stylesheet" type="text/css" href="styles/forms_tables.css">
 		<link rel="stylesheet" type="text/css" href="styles/car_grid.css">
+        <script src="https://lint.page/kit/880bd5.js" crossorigin="anonymous"></script>
 		<title>Jubilant Cheetah Used Cars</title>
 	</head>
 	<body>

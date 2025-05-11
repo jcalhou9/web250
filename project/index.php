@@ -8,11 +8,12 @@ $view = $_GET['view'] ?? 'login';
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Worklog Manager</title>
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/layout.css">
+    <script src="https://lint.page/kit/880bd5.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <h2>Worklog Manager</h2>

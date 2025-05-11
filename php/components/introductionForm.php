@@ -80,7 +80,7 @@
         <?php endforeach; ?>
 
         <div class="form-buttons">
-            <button type="submit">Update Introduction</button>
+            <button type="submit">Submit</button>
             <button type="submit" formaction="index.php" formmethod="get" name="content" value="introductionForm">Reset</button>
         </div>
     </form>

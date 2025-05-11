@@ -27,5 +27,5 @@ if ($result = $mysqli->query($query)) {
     <input type="file" name="file" id="file"><br>
     <input name="VIN" type="hidden" value= "<?= $vin ?>" /><br/>
     <input type="submit" name="submit" value="Submit">
-    <a href="index.php"><button type="button">Close</button></a><br />
+    <button type="button" onclick="location.href='index.php'">Close</button>
 </form>

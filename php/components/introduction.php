@@ -1,7 +1,7 @@
 <h2>Introduction</h2>
 			<figure>
 				<img src="./images/self.jpg" alt="Jeremy Calhoun stadium">
-				<figcaption><i>Downtown charlotte after a charity event</i></figcaption>
+				<figcaption>Downtown charlotte after a charity event</figcaption>
 			</figure>
 			<dl>
 				<dt><strong>Background</strong></dt>

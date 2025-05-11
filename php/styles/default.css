@@ -51,6 +51,10 @@ figure {
     color: var(--main_text);
 }
 
+figcaption {
+    font-style: italic;
+}
+
 img{
     max-width: 100%;
 }

@@ -7,6 +7,7 @@ session_start();
 	<head>
 		<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 		<link rel="stylesheet" type="text/css" href="styles/default.css">
+        <script src="https://lint.page/kit/880bd5.js" crossorigin="anonymous"></script>
 		<title>JC Used Cars</title>
 	</head>
 	<body>
@@ -37,7 +38,7 @@ session_start();
 			include 'components/view_cars_table.php';
 			$mysqli->close();
 			?>
-		<p><a href="scripts/db_setup.php">Reset Database - USE WITH CAUTION</a></p>
+		<p><a href="scripts/db_setup.php">Reset Database - USE WITH CAUTION</a> May take a minunte to load.</p>
 		</main>
 		<footer>
 		</footer>

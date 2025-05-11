@@ -19,11 +19,8 @@
     text-align: left;
 }
 
-.carCard.highlight {
-    background-color: yellow;
-}
-
 .carThumbnail {
+    box-sizing: border-box;
     width: 100%;
     height: auto;
     object-fit: cover;
@@ -74,11 +71,11 @@
     text-align: center;
 }
 
-.carActions a.editBtn {
+.carActions .editBtn {
     background-color: #4a90e2;
 }
 
-.carActions a.deleteBtn {
+.carActions .deleteBtn {
     background-color: #e94e4e;
 }
 
@@ -102,6 +99,7 @@
 }
 
 .uploadedImage {
+    box-sizing: border-box;
     width: 100%;
     max-width: 25ch;
     border: 1px solid black;
@@ -131,6 +129,7 @@
 }
 
 .imageScroller img {
+    box-sizing: border-box;
     width: 25ch;
     height: auto;
     border: 1px solid #666;
@@ -138,6 +137,6 @@
     margin: auto;
 }
 
-.imageScroller.singleImage {
+.singleImage {
     justify-content: center;
 }

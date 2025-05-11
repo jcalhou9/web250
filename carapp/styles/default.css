@@ -18,7 +18,7 @@ body{
     width: 90%;
 }
 
-h1, h2, h3, header, footer, section, header p{
+header, footer, section{
     text-align: center;
     margin: 0 auto;
     border-radius: 5px;
@@ -26,6 +26,9 @@ h1, h2, h3, header, footer, section, header p{
 
 h1, h2, h3, header p{
     padding: 1ch;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 5px;
 }
 
 input{
@@ -74,20 +77,20 @@ section img {
     background-color:#C2D9FE;
 }
 
-
 #Grid {
-border:2px solid black;
-border-radius: 5px;
-table-layout: auto;
-width:100%;
-border-collapse:collapse;
-margin-bottom: 5ch;
+    box-sizing: border-box;
+    border:2px solid black;
+    border-radius: 5px;
+    table-layout: auto;
+    width:100%;
+    border-collapse:collapse;
+    margin-bottom: 5ch;
 }
-#Grid td, #Grid th 
-{
-font-size:1em;
-border:1px solid black;
-padding:.4ch;
+
+#Grid td, #Grid th {
+    font-size:1em;
+    border:1px solid black;
+    padding:.4ch;
 }
 
 tr td:last-child{
@@ -100,26 +103,22 @@ tr td:nth-last-of-type(2){
     width: 12ch;
 }
 
-#Grid th 
-{
-font-size:1.1em;
-text-align:center;
-padding: .5ch;
-background-color:#C2D9FE;
-
-}
-#Grid tr.odd td 
-{
-background-color: #ffffff99;
+#Grid th {
+    font-size:1.1em;
+    text-align:center;
+    padding: .5ch;
+    background-color:#C2D9FE;
 }
 
-#Grid tr.even td
-{
-color:#000000;
-background-color: #ffffff;
+#Grid .odd td {
+    background-color: #ffffff99;
 }
-#Grid head 
-{
-color:#000000;
-background-color:teal;
+
+#Grid .even td{
+    color:#000000;
+    background-color: #ffffff;
+}
+#Grid head {
+    color:#000000;
+    background-color:teal;
 }
